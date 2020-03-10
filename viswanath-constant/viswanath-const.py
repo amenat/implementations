@@ -12,7 +12,7 @@ def exp_rand_fib_n(n: int, simcount: int) -> int:
     simulation = []
     for i in range(simcount):
         f_0, f_1 = 1, 1
-        for j in range(n):
+        for j in range(n-2):
             tmp = f_0 + choice([-1,1]) * f_1
             f_0 = f_1
             f_1 = tmp
@@ -22,7 +22,7 @@ def exp_rand_fib_n(n: int, simcount: int) -> int:
 
 
 
-n = 200000
-fibn = exp_rand_fib_n(n, 10)
+n = 100000
+fibn = exp_rand_fib_n(n, 100)
 
-print(gmpy2.root(fibn, n+1))
+print(gmpy2.root(fibn, n))
