@@ -9,15 +9,16 @@ function setup() {
 
 function draw() {
     background(33);
-    stroke(0,255,0);
-    strokeWeight(5);
-    line(p1.x, p1.y, p2.x, p2.y);
     drawGrid();
+    drawPoint(p1);
+    drawPoint(p2);
+    stroke(0,255,0);
+    line(flrDn(p1.x, 10)+5, flrDn(p1.y, 10)+5, flrDn(p2.x, 10)+5, flrDn(p2.y, 10)+5);
+    bresenham(p1, p2);
 }
 
 function drawGrid() {
-    stroke(100);
-    strokeWeight(1);
+    stroke(63);
     numLines = floor(width / 10);
     for (i = 0; i < numLines; i++) {
         line(10*i, 0, 10*i, height);
@@ -25,8 +26,20 @@ function drawGrid() {
     }
 }
 
-function drawEndpoints(p1, p2) {
-    return 1;
+
+function drawPoint(p) {
+    fill(0,255,0)
+    rect(flrDn(p.x, 10), flrDn(p.y, 10), 10, 10);
+}
+
+
+function flrDn(n, r) {
+    return floor(n/r) * r
+}
+
+
+function bresenham(p1, p2) {
+    return 1
 }
 
 
